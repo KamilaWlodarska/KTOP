@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KTOP.Pages.HomesPage"
+             BackgroundColor="{StaticResource Dark}"
+             Shell.BackgroundColor="{StaticResource Dark}"
+             Shell.ForegroundColor="{StaticResource Dark}"
+             Shell.TitleColor="{StaticResource Dark}"
+             Shell.NavBarIsVisible="False">
+    <Grid Margin="15" RowDefinitions="Auto, Auto, *">
+        <Grid Grid.Row="0" ColumnSpacing="20" ColumnDefinitions="*, Auto">
+            <Frame Grid.Column="0" Padding="15, 0, 15, 0"
+               BackgroundColor="{StaticResource Dark}"
+               BorderColor="{StaticResource Beige}"
+               CornerRadius="10">
+                <HorizontalStackLayout Spacing="15" HeightRequest="50">
+                    <Image Source="search_b.png" HeightRequest="20" />
+                    <Label Text="Wyszukaj miejsce"
+                       TextColor="{StaticResource Light}"
+                       VerticalOptions="Center" />
+                </HorizontalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapHomeSearch" Tapped="TapHomeSearch_Tapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <ImageButton Grid.Column="1"
+             HorizontalOptions="Center"
+             x:Name="AddHomeImgBtn"
+             Source="add_b.png"
+             WidthRequest="50"
+             HeightRequest="50"
+             CornerRadius="10"
+             BackgroundColor="{StaticResource Dark}"
+             Clicked="AddHomeImgBtn_Clicked" />
+        </Grid>
+        <VerticalStackLayout Grid.Row="1" Margin="0, 20, 0, 0" VerticalOptions="Start">
+            <Label Text="Twoje miejsca" FontSize="20" TextColor="{StaticResource Light}" />
+        </VerticalStackLayout>
+        <ScrollView  Grid.Row="2" Margin="0, 20, 0, 0">
+            <VerticalStackLayout Spacing="15" VerticalOptions="Start">
+                <CollectionView x:Name="CVHome" SelectionMode="Single" SelectionChanged="CVHome_SelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="20, 0, 0, 0" Margin="5" WidthRequest="330" HeightRequest="50"
+                                    BackgroundColor="{StaticResource Dark}"
+                                    StrokeThickness="1" Stroke="{StaticResource Beige}" StrokeShape="RoundRectangle 10">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualState Name="Normal" />
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="{StaticResource Beige}" />
+                                                <Setter TargetName="homeNameLabel" Property="Label.TextColor" Value="{StaticResource Dark}" />
+                                                <Setter TargetName="homeNameLabel" Property="Label.FontAttributes" Value="Bold" />
+                                                <Setter TargetName="ownerLabel" Property="Label.TextColor" Value="{StaticResource Dark}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <HorizontalStackLayout Spacing="30" VerticalOptions="Center">
+                                    <Label x:Name="homeNameLabel" FontSize="15" Text="{Binding HomeName}"
+                                VerticalOptions="Center" TextColor="{StaticResource Light}" />
+                                    <Label x:Name="ownerLabel" TextColor="{StaticResource Beige}"/>
+                                </HorizontalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

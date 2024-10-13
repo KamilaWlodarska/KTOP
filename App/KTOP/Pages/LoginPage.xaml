@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KTOP.Pages.LoginPage"
+             BackgroundColor="{StaticResource Dark}"
+             NavigationPage.HasNavigationBar="False">
+    <VerticalStackLayout VerticalOptions="Center" Margin="30" Spacing="30">
+        <Label Text="Witaj!" FontSize="30"
+               TextColor="{StaticResource Beige}"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+        <Label Text="Podaj email i hasło aby korzystać z aplikacji"
+               FontSize="15"
+               TextColor="{StaticResource Light}"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+        <Entry x:Name="EntEmail"
+               TextColor="{StaticResource Light}"
+               Placeholder="Email" />
+        <Entry x:Name="EntPwd"
+               TextColor="{StaticResource Light}"
+               Placeholder="Hasło" IsPassword="True" />
+        <Button x:Name="BtnLogin" Text="Zaloguj"
+                FontSize="18"
+                FontAttributes="Bold"
+                TextColor="{StaticResource Dark}"
+                WidthRequest="150"
+                CornerRadius="10"
+                BackgroundColor="{StaticResource Beige}"
+                Clicked="BtnLogin_Clicked" />
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label Text="Nie masz konta? " TextColor="{StaticResource Light}" />
+            <Label Text=" Zarajestruj się" TextColor="{StaticResource Beige}" />
+            <HorizontalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapRegister" Tapped="TapRegister_Tapped" />
+            </HorizontalStackLayout.GestureRecognizers>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

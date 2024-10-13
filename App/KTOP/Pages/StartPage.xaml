@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KTOP.Pages.StartPage"
+             BackgroundColor="{StaticResource Dark}"
+             Shell.BackgroundColor="{StaticResource Dark}"
+             Shell.ForegroundColor="{StaticResource Dark}"
+             Shell.TitleColor="{StaticResource Dark}"
+             Shell.NavBarIsVisible="False">
+    <Grid Margin="30" RowSpacing="30" RowDefinitions="Auto, Auto, Auto, *">
+        <HorizontalStackLayout Grid.Row="0" Margin="20, 0, 30, 0" HorizontalOptions="Center">
+            <Image Source="ktop_logo.png" HeightRequest="88" />
+            <VerticalStackLayout Margin="20, 0, 0, 0" Spacing="5">
+                <Label Text="Keep Tabs" FontSize="30"
+                   TextColor="{StaticResource Light}" />
+                <Label Text="On Products" FontSize="30"
+                   TextColor="{StaticResource Light}" />
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+        <Grid Grid.Row="1" Margin="10, 0, 0, 0" ColumnSpacing="30" ColumnDefinitions="Auto, Auto">
+            <Frame Grid.Column="0" Padding="20, 10, 0, 10" WidthRequest="140"
+                   BackgroundColor="{StaticResource Dark}"
+                   CornerRadius="10" BorderColor="{StaticResource Beige}">
+                <HorizontalStackLayout Spacing="20">
+                    <Image HorizontalOptions="Center"
+                         Source="add_b.png"
+                         WidthRequest="40"
+                         HeightRequest="40"
+                         BackgroundColor="{StaticResource Dark}"/>
+                    <Image HorizontalOptions="Center"
+                             Source="product_b.png"
+                             WidthRequest="50"
+                             HeightRequest="50"
+                             BackgroundColor="{StaticResource Dark}"/>
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapAddProd" Tapped="TapAddProd_Tapped" />
+                    </HorizontalStackLayout.GestureRecognizers>
+                </HorizontalStackLayout>
+            </Frame>
+            <Frame Grid.Column="1" Padding="20, 0, 0, 0" WidthRequest="140"
+                   BackgroundColor="{StaticResource Dark}"
+                   CornerRadius="10" BorderColor="{StaticResource Beige}">
+                <HorizontalStackLayout Spacing="20">
+                    <Image HorizontalOptions="Center"
+                         Source="add_b.png"
+                         WidthRequest="40"
+                         HeightRequest="40"
+                         BackgroundColor="{StaticResource Dark}"/>
+                    <Image HorizontalOptions="Center"
+                         Source="home_b.png"
+                         WidthRequest="50"
+                         HeightRequest="50"
+                         BackgroundColor="{StaticResource Dark}"/>
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapAddHome" Tapped="TapAddHome_Tapped" />
+                    </HorizontalStackLayout.GestureRecognizers>
+                </HorizontalStackLayout>
+            </Frame>
+        </Grid>
+        <VerticalStackLayout Grid.Row="2" VerticalOptions="Center">
+            <Label Text="Otwarte produkty" FontSize="20" TextColor="{StaticResource Light}" />
+        </VerticalStackLayout>
+        <ScrollView Grid.Row="3">
+            <VerticalStackLayout Spacing="15" VerticalOptions="Start">
+                <CollectionView x:Name="CVProdOD" SelectionMode="Single" SelectionChanged="CVProdOD_SelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="20, 0, 0, 0" Margin="5"
+                        WidthRequest="330" HeightRequest="50"
+                        BackgroundColor="{StaticResource Dark}" 
+                        StrokeThickness="1" Stroke="{StaticResource Beige}"
+                        StrokeShape="RoundRectangle 10">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualState Name="Normal" />
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="{StaticResource Beige}" />
+                                                <Setter TargetName="prodNameODLabel" Property="Label.TextColor" Value="{StaticResource Dark}" />
+                                                <Setter TargetName="prodNameODLabel" Property="Label.FontAttributes" Value="Bold" />
+                                                <Setter TargetName="prodOpenDateLabel" Property="Label.TextColor" Value="{StaticResource Dark}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <HorizontalStackLayout Spacing="30" VerticalOptions="Center">
+                                    <Label x:Name="prodNameODLabel" FontSize="15"
+                               Text="{Binding ProductName}"
+                               VerticalOptions="Center"
+                               TextColor="{StaticResource Light}" />
+                                    <Label x:Name="prodOpenDateLabel"
+                               Text="{Binding OpenDate}"
+                               TextColor="{StaticResource Beige}"/>
+                                </HorizontalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

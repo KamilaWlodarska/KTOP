@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KTOP.Pages.Homes.OwnerHomeDetailsPage"
+             BackgroundColor="{StaticResource Dark}"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+    <VerticalStackLayout>
+        <Grid Margin="15" ColumnSpacing="15" ColumnDefinitions="Auto,*">
+            <ImageButton Grid.Column="0"
+                         HorizontalOptions="Center"
+                         x:Name="BackImgBtn"
+                         Source="backarrow_b.png"
+                         WidthRequest="25"
+                         HeightRequest="25"
+                         BackgroundColor="{StaticResource Dark}"
+                         Clicked="BackImgBtn_Clicked"/>
+            <Label Grid.Column="1" x:Name="homeNameL" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Beige}" />
+        </Grid>
+        <VerticalStackLayout Margin="30" Spacing="20" VerticalOptions="Start">
+            <Frame BackgroundColor="{StaticResource Dark}" CornerRadius="10" BorderColor="{StaticResource Beige}">
+                <HorizontalStackLayout Spacing="30">
+                    <Image Source="account_b.png" HeightRequest="30" />
+                    <Label Text="Użytkownicy" FontSize="20" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapHomeUsrs" Tapped="TapHomeUsrs_Tapped" />
+                    </HorizontalStackLayout.GestureRecognizers>
+                </HorizontalStackLayout>
+            </Frame>
+            <Frame BackgroundColor="{StaticResource Dark}" Padding="17" CornerRadius="10" BorderColor="{StaticResource Beige}">
+                <HorizontalStackLayout Spacing="30">
+                    <Image Source="product_b.png" HeightRequest="35"/>
+                    <Label Text="Produkty" FontSize="20" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapHomeProd" Tapped="TapHomeProd_Tapped" />
+                    </HorizontalStackLayout.GestureRecognizers>
+                </HorizontalStackLayout>
+            </Frame>
+            <Frame BackgroundColor="{StaticResource Dark}" CornerRadius="10" BorderColor="{StaticResource Beige}">
+                <HorizontalStackLayout Spacing="30">
+                    <Image Source="change_data_b.png" HeightRequest="30" />
+                    <Label Text="Edytuj dane" FontSize="20" TextColor="{StaticResource Light}" VerticalOptions="Center"/>
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapEditHome" Tapped="TapEditHome_Tapped" />
+                    </HorizontalStackLayout.GestureRecognizers>
+                </HorizontalStackLayout>
+            </Frame>
+            <Frame BackgroundColor="{StaticResource Dark}" Padding="17" CornerRadius="10" BorderColor="{StaticResource Beige}">
+                <HorizontalStackLayout Spacing="30">
+                    <Image Source="home_del_b.png" HeightRequest="35" />
+                    <Label Text="Usuń miejsce" FontSize="20" TextColor="{StaticResource Light}" VerticalOptions="Center"/>
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapDelHome" Tapped="TapDelHome_Tapped" />
+                    </HorizontalStackLayout.GestureRecognizers>
+                </HorizontalStackLayout>
+            </Frame>            
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

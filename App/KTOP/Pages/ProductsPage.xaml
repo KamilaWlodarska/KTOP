@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KTOP.Pages.ProductsPage"
+             BackgroundColor="{StaticResource Dark}"
+             Shell.BackgroundColor="{StaticResource Dark}"
+             Shell.ForegroundColor="{StaticResource Dark}"
+             Shell.TitleColor="{StaticResource Dark}"
+             Shell.NavBarIsVisible="False">
+    <Grid Margin="15" RowDefinitions="Auto, Auto, Auto, *">
+        <Grid Grid.Row="0" ColumnSpacing="20" ColumnDefinitions="*, Auto">
+            <Frame Grid.Column="0" Padding="15, 0, 15, 0"
+                   BackgroundColor="{StaticResource Dark}"
+                   BorderColor="{StaticResource Beige}"
+                   CornerRadius="10">
+                <HorizontalStackLayout Spacing="15" HeightRequest="50">
+                    <Image Source="search_b.png" HeightRequest="20" />
+                    <Label Text="Wyszukaj produkt"
+                           TextColor="{StaticResource Light}"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapProdSearch" Tapped="TapProdSearch_Tapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <ImageButton Grid.Column="1"
+                 HorizontalOptions="Center"
+                 x:Name="AddProdImgBtn"
+                 Source="add_b.png"
+                 WidthRequest="50"
+                 HeightRequest="50"
+                 CornerRadius="10"
+                 BackgroundColor="{StaticResource Dark}"
+                 Clicked="AddProdImgBtn_Clicked" />
+        </Grid>
+        <Grid Grid.Row="1" Margin="0, 20, 0, 0" HorizontalOptions="CenterAndExpand"
+              ColumnSpacing="30" ColumnDefinitions=".33*,.33*,.33*">
+            <Frame Grid.Column="0" Padding="5" WidthRequest="100" BackgroundColor="{StaticResource Beige}" CornerRadius="10" BorderColor="{StaticResource Beige}">
+                <VerticalStackLayout HorizontalOptions="Center">
+                    <Label Text="Data" FontSize="15" FontAttributes="Bold" TextColor="{StaticResource Dark}" HorizontalOptions="Center" />
+                    <Picker x:Name="datePicker" Title="Wybierz" TextColor="{StaticResource Dark}" TitleColor="{StaticResource Dark}" SelectedIndexChanged="datePicker_SelectedIndexChanged" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+            <Frame Grid.Column="1" Padding="5" WidthRequest="100" BackgroundColor="{StaticResource Beige}" CornerRadius="10" BorderColor="{StaticResource Beige}">
+                <VerticalStackLayout HorizontalOptions="Center">
+                    <Label Text="Miejsce" FontSize="15" FontAttributes="Bold" TextColor="{StaticResource Dark}" HorizontalOptions="Center" />
+                    <Picker x:Name="homePicker" Title="Wybierz" TextColor="{StaticResource Dark}" TitleColor="{StaticResource Dark}" ItemDisplayBinding="{Binding HomeName}" SelectedIndexChanged="homePicker_SelectedIndexChanged" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+            <Frame Grid.Column="2" Padding="5" WidthRequest="100" BackgroundColor="{StaticResource Beige}" CornerRadius="10" BorderColor="{StaticResource Beige}">
+                <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center">
+                    <Label Text="Kategoria" FontSize="15" FontAttributes="Bold" TextColor="{StaticResource Dark}" HorizontalOptions="Center" />
+                    <Picker x:Name="categoryPicker" Title="Wybierz" TextColor="{StaticResource Dark}" TitleColor="{StaticResource Dark}" ItemDisplayBinding="{Binding CategoryName}" SelectedIndexChanged="categoryPicker_SelectedIndexChanged" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+        </Grid>
+        <VerticalStackLayout Grid.Row="2" Margin="0, 20, 0, 0" Spacing="15" VerticalOptions="Start">
+            <HorizontalStackLayout Spacing="165">
+                <Label Text="Twoje produkty" FontSize="20" TextColor="{StaticResource Light}" />
+                <Button x:Name="resetBtn" Text="RESET" TextColor="{StaticResource Beige}" FontSize="15" FontAttributes="Bold" Padding="5" HeightRequest="30" BackgroundColor="{StaticResource Dark}" Clicked="resetBtn_Clicked" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <ScrollView Grid.Row="3" Margin="0, 20, 0, 0">
+            <VerticalStackLayout Spacing="15" VerticalOptions="Start">
+                <CollectionView x:Name="CVProd" SelectionMode="Single" SelectionChanged="CVProd_SelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="20, 0, 0, 0" Margin="5" WidthRequest="330" HeightRequest="50"
+                                    BackgroundColor="{StaticResource Dark}" 
+                                    StrokeThickness="1" Stroke="{StaticResource Beige}" StrokeShape="RoundRectangle 10">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualState Name="Normal" />
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="{StaticResource Beige}" />
+                                                <Setter TargetName="prodNameLabel" Property="Label.TextColor" Value="{StaticResource Dark}" />
+                                                <Setter TargetName="prodNameLabel" Property="Label.FontAttributes" Value="Bold" />
+                                                <Setter TargetName="prodLabel" Property="Label.TextColor" Value="{StaticResource Dark}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <HorizontalStackLayout Spacing="30" VerticalOptions="Center">
+                                    <Label x:Name="prodNameLabel" FontSize="15" Text="{Binding ProductName}"
+                                       VerticalOptions="Center" TextColor="{StaticResource Light}" />
+                                    <Label x:Name="prodLabel" TextColor="{StaticResource Beige}"/>
+                                </HorizontalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

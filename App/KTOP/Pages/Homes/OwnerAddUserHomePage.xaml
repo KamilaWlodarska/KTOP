@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KTOP.Pages.Homes.OwnerAddUserHomePage"
+             BackgroundColor="{StaticResource Dark}"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+    <VerticalStackLayout>
+        <Grid Margin="15" ColumnSpacing="15" ColumnDefinitions="Auto,*">
+            <ImageButton Grid.Column="0"
+                         HorizontalOptions="Center"
+                         x:Name="BackImgBtn"
+                         Source="backarrow_b.png"
+                         WidthRequest="25"
+                         HeightRequest="25"
+                         BackgroundColor="{StaticResource Dark}"
+                         Clicked="BackImgBtn_Clicked"/>
+            <Label Grid.Column="1" Text="Dodawanie użytkownika" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Beige}" />
+        </Grid>
+        <Grid Margin="30" VerticalOptions="Start" ColumnSpacing="20" ColumnDefinitions=".30*, *">
+            <Label Grid.Column="0" Text="Email" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+            <Entry Grid.Column="1" x:Name="EntUserEmail" Placeholder="Email" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+        </Grid>
+        <VerticalStackLayout Margin="0, 30, 0, 0">
+            <Button x:Name="AddUserBtn"
+                    Text="Dodaj"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    TextColor="{StaticResource Dark}"
+                    WidthRequest="150"
+                    CornerRadius="10"
+                    BackgroundColor="{StaticResource Beige}"
+                    Clicked="AddUserBtn_Clicked" />
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

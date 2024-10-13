@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="KTOP.AppShell"
+    xmlns:local="clr-namespace:KTOP.Pages"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.BackgroundColor="{StaticResource Beige}"
+    Shell.TabBarBackgroundColor="{StaticResource Dark}"
+    Shell.TabBarTitleColor="{StaticResource Light}"
+    Shell.TabBarUnselectedColor="{StaticResource Beige}">
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" Route="MenuRoute">
+        <ShellContent
+        Title="Start"
+        Icon="start.png"
+        ContentTemplate="{DataTemplate local:StartPage}"
+        Route="StartPage" />
+
+        <ShellContent
+        Title="Kalendarz"
+        Icon="calendar.png"
+        ContentTemplate="{DataTemplate local:CalendarPage}"
+        Route="CalendarPage" />
+
+        <ShellContent
+        Title="Produkty"
+        Icon="products.png"
+        ContentTemplate="{DataTemplate local:ProductsPage}"
+        Route="ProductsPage" />
+
+        <ShellContent
+        Title="Miejsca"
+        Icon="homes.png"
+        ContentTemplate="{DataTemplate local:HomesPage}"
+        Route="HomesPage" />
+
+        <ShellContent
+        Title="Ustawienia"
+        Icon="settings.png"
+        ContentTemplate="{DataTemplate local:SettingsPage}"
+        Route="SettingsPage" />
+    </FlyoutItem>
+</Shell>

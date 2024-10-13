@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KTOP.Pages.WelcomePage"
+             BackgroundColor="{StaticResource Dark}"
+             NavigationPage.HasNavigationBar="False">
+    <Grid Margin="30" RowDefinitions="Auto, *, Auto">
+        <HorizontalStackLayout Grid.Row="0" Margin="20, 0, 30, 0" HorizontalOptions="Center">
+            <Image Source="ktop_logo.png" HeightRequest="88" />
+            <VerticalStackLayout Margin="20, 0, 0, 0" Spacing="5">
+                <Label Text="Keep Tabs" FontSize="30"
+                       TextColor="{StaticResource Light}" />
+                <Label Text="On Products" FontSize="30"
+                       TextColor="{StaticResource Light}" />
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+        <VerticalStackLayout Grid.Row="1" Margin="0, 150, 0, 0" Spacing="30" HorizontalOptions="Center">
+            <Label Text="Witaj w aplikacji KTOP!" FontSize="30"
+                   TextColor="{StaticResource Beige}" />
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, *"
+                  RowSpacing="30">
+                <Image Grid.Row="0" Grid.Column="0" Source="ktop_logo.png" WidthRequest="25" />
+                <Label Grid.Row="0" Grid.Column="1" Text=" monitoruj terminy ważności produktów" FontSize="15"
+                       TextColor="{StaticResource Light}" />
+                <Image Grid.Row="1" Grid.Column="0" Source="ktop_logo.png" WidthRequest="25" />
+                <Label Grid.Row="1" Grid.Column="1" Text=" efektywnie zarządzaj swoimi produktami" FontSize="15"
+                       TextColor="{StaticResource Light}" />
+                <Image Grid.Row="2" Grid.Column="0" Source="ktop_logo.png" WidthRequest="25" />
+                <Label Grid.Row="2" Grid.Column="1" Text=" wpółdziel miejsca z innymi użytkownikami" FontSize="15"
+                       TextColor="{StaticResource Light}" />
+                <Image Grid.Row="3" Grid.Column="0" Source="ktop_logo.png" WidthRequest="25" />
+                <Label Grid.Row="3" Grid.Column="1" Text=" zapobiegaj marnotrawstwu" FontSize="15"
+                       TextColor="{StaticResource Light}" />
+            </Grid>
+        </VerticalStackLayout>
+        <HorizontalStackLayout Grid.Row="2" HorizontalOptions="Center">
+            <Button x:Name="LoginPageBtn"
+                    Text="Zaczynamy!"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    TextColor="{StaticResource Dark}"
+                    WidthRequest="150"
+                    CornerRadius="10"
+                    BackgroundColor="{StaticResource Beige}"
+                    Clicked="LoginPageBtn_Clicked" />
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>

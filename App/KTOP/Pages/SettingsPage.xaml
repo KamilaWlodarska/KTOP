@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KTOP.Pages.SettingsPage"
+             BackgroundColor="{StaticResource Dark}"
+             Shell.BackgroundColor="{StaticResource Dark}"
+             Shell.ForegroundColor="{StaticResource Dark}"
+             Shell.TitleColor="{StaticResource Dark}"
+             Shell.NavBarIsVisible="False">
+    <VerticalStackLayout Margin="30" Spacing="20" VerticalOptions="Start">
+        <Frame BackgroundColor="{StaticResource Dark}"
+               CornerRadius="10" BorderColor="{StaticResource Beige}">
+            <HorizontalStackLayout Spacing="30">
+                <Image Source="account_b.png" HeightRequest="30" />
+                <Label Text="Konto" FontSize="20" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                <HorizontalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapAcc" Tapped="TapAcc_Tapped" />
+                </HorizontalStackLayout.GestureRecognizers>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame BackgroundColor="{StaticResource Dark}"
+       CornerRadius="10" BorderColor="{StaticResource Beige}">
+            <HorizontalStackLayout Spacing="30">
+                <Image Source="language_b.png" HeightRequest="30"/>
+                <Label Text="Język" FontSize="20" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                <HorizontalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapLang" Tapped="TapLang_Tapped" />
+                </HorizontalStackLayout.GestureRecognizers>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame BackgroundColor="{StaticResource Dark}"
+       CornerRadius="10" BorderColor="{StaticResource Beige}">
+            <HorizontalStackLayout Spacing="30">
+                <Image Source="customization_b.png" HeightRequest="30" />
+                <Label Text="Wygląd" FontSize="20" TextColor="{StaticResource Light}" VerticalOptions="Center"/>
+                <HorizontalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapCst" Tapped="TapCst_Tapped" />
+                </HorizontalStackLayout.GestureRecognizers>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame BackgroundColor="{StaticResource Dark}"
+       CornerRadius="10" BorderColor="{StaticResource Beige}">
+            <HorizontalStackLayout Spacing="30">
+                <Image Source="notification_b.png" HeightRequest="30" />
+                <Label Text="Powiadomienia" FontSize="20" TextColor="{StaticResource Light}" VerticalOptions="Center"/>
+                <HorizontalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapNtf" Tapped="TapNtf_Tapped" />
+                </HorizontalStackLayout.GestureRecognizers>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame BackgroundColor="{StaticResource Dark}"
+       CornerRadius="10" BorderColor="{StaticResource Beige}">
+            <HorizontalStackLayout Spacing="30">
+                <Image Source="info_b.png" HeightRequest="30" />
+                <Label Text="O aplikacji" FontSize="20" TextColor="{StaticResource Light}" VerticalOptions="Center"/>
+                <HorizontalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapInfo" Tapped="TapInfo_Tapped" />
+                </HorizontalStackLayout.GestureRecognizers>
+            </HorizontalStackLayout>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>

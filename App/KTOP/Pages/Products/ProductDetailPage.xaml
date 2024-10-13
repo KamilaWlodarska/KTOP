@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KTOP.Pages.Products.ProductDetailPage"
+             BackgroundColor="{StaticResource Dark}"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+    <VerticalStackLayout>
+        <Grid Margin="15" ColumnSpacing="15" ColumnDefinitions="Auto,*">
+            <ImageButton Grid.Column="0"
+                         HorizontalOptions="Center"
+                         x:Name="BackImgBtn"
+                         Source="backarrow_b.png"
+                         WidthRequest="25"
+                         HeightRequest="25"
+                         BackgroundColor="{StaticResource Dark}"
+                         Clicked="BackImgBtn_Clicked"/>
+            <Label Grid.Column="1" Text="Szczegóły produktu" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Beige}" />
+        </Grid>
+        <Grid Margin="30" RowSpacing="20" VerticalOptions="Start" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
+            <Grid Grid.Row="0" ColumnSpacing="20" ColumnDefinitions=".30*, *">
+                <Label Grid.Column="0" Text="Nazwa" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                <Label Grid.Column="1" x:Name="ProdNameL" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+            </Grid>
+            <Grid Grid.Row="1" ColumnSpacing="20" ColumnDefinitions=".30*, *">
+                <Label Grid.Column="0" Text="Kategoria" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                <Label Grid.Column="1" x:Name="ProdCatL" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+            </Grid>
+            <Grid Grid.Row="2" ColumnSpacing="20" ColumnDefinitions=".30*, *">
+                <Label Grid.Column="0" Text="Data nabycia" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                <Label Grid.Column="1" x:Name="ProdPurDateL" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+            </Grid>
+            <Grid Grid.Row="3" ColumnSpacing="20" ColumnDefinitions=".30*, *">
+                <Label Grid.Column="0" Text="Data ważności" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                <Label Grid.Column="1" x:Name="ProdExpDateL" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+            </Grid>
+            <Grid Grid.Row="4" ColumnSpacing="20" ColumnDefinitions=".30*, *">
+                <Label Grid.Column="0" Text="Data otwarcia" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                <Label Grid.Column="1" x:Name="ProdOpenDateL" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+            </Grid>
+            <Grid Grid.Row="5" ColumnSpacing="20" ColumnDefinitions=".30*, *">
+                <Label Grid.Column="0" Text="Miejsce" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                <Label Grid.Column="1" x:Name="ProdHomeL" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+            </Grid>
+        </Grid>
+        <VerticalStackLayout Margin="0, 30, 0, 0" Spacing="30">
+            <Button x:Name="EditProductBtn"
+                    Text="Edytuj"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    TextColor="{StaticResource Dark}"
+                    WidthRequest="150"
+                    CornerRadius="10"
+                    BackgroundColor="{StaticResource Beige}"
+                    Clicked="EditProductBtn_Clicked" />
+            <Button x:Name="DeleteProductBtn"
+                    Text="Usuń"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    TextColor="{StaticResource Dark}"
+                    WidthRequest="150"
+                    CornerRadius="10"
+                    BackgroundColor="{StaticResource Beige}"
+                    Clicked="DeleteProductBtn_Clicked_1" />
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

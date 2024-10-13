@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KTOP.Pages.Settings.AppInfoPage"
+             BackgroundColor="{StaticResource Dark}"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+    <VerticalStackLayout>
+        <Grid Margin="15" ColumnSpacing="15" ColumnDefinitions="Auto,*">
+            <ImageButton Grid.Column="0"
+             HorizontalOptions="Center"
+             x:Name="BackImgBtn"
+             Source="backarrow_b.png"
+             WidthRequest="25"
+             HeightRequest="25"
+             BackgroundColor="{StaticResource Dark}"
+             Clicked="BackImgBtn_Clicked"/>
+            <Label Grid.Column="1" Text="O aplikacji" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Beige}" />
+        </Grid>
+        <VerticalStackLayout Margin="30">
+            <Label Text="Aplikacja KTOP" FontSize="20" TextColor="{StaticResource Light}" HorizontalOptions="Center" />
+            <Label Text="(Keep Tabs On Products)" FontSize="20" TextColor="{StaticResource Light}" HorizontalOptions="Center" />
+            <VerticalStackLayout Margin="0, 30, 0, 0" Spacing="25">
+                <Line BackgroundColor="{StaticResource Beige}"/>
+                <Label Text="Aplikacja ma na celu:" FontSize="15" TextColor="{StaticResource Light}" />
+                <Label Text="➤  monitorowanie terminów ważności" FontSize="15" TextColor="{StaticResource Light}" />
+                <Label Text="➤  efektywne zarządzanie produktami" FontSize="15" TextColor="{StaticResource Light}" />
+                <Label Text="➤  zapobieganie marnotrawstwu" FontSize="15" TextColor="{StaticResource Light}" />
+                <Line BackgroundColor="{StaticResource Beige}"/>
+                <Label Text="Aplikacja przeznaczona jest dla użytkowników indywidualnych." FontSize="15" TextColor="{StaticResource Light}" />
+                <Label Text="Aplikacja zbiera dane wyłącznie w celu zapewnienia funkcjonalności aplikacji." FontSize="15" TextColor="{StaticResource Light}" />
+                <Label Text="Dane użytkownika są chronione oraz nie są udostępniane osobom trzecim." FontSize="15" TextColor="{StaticResource Light}" />
+                <Line BackgroundColor="{StaticResource Beige}"/>
+                <Label Text="Jeśli masz jakiekolwiek pytania, uwagi lub problemy związane z aplikacją skontaktuj się pod adresem email:" FontSize="15" TextColor="{StaticResource Light}" />
+                <Label Text="ktopapp@gmail.com" FontSize="15" TextColor="{StaticResource Beige}" HorizontalOptions="Center" />
+            </VerticalStackLayout>            
+        </VerticalStackLayout>        
+    </VerticalStackLayout>
+</ContentPage>

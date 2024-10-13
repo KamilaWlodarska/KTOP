@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KTOP.Pages.Settings.ChangeUserPwdPage"
+             BackgroundColor="{StaticResource Dark}"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+    <VerticalStackLayout>
+        <Grid Margin="15" ColumnSpacing="15" ColumnDefinitions="Auto,*">
+            <ImageButton Grid.Column="0"
+                         HorizontalOptions="Center"
+                         x:Name="BackImgBtn"
+                         Source="backarrow_b.png"
+                         WidthRequest="25"
+                         HeightRequest="25"
+                         BackgroundColor="{StaticResource Dark}"
+                         Clicked="BackImgBtn_Clicked"/>
+            <Label Grid.Column="1" Text="Zmiana hasła" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Beige}" />
+        </Grid>
+        <Grid Margin="30" RowSpacing="20" VerticalOptions="Start" RowDefinitions="Auto, Auto, Auto">
+            <Grid Grid.Row="0" ColumnSpacing="20" ColumnDefinitions=".30*, *">
+                <Label Grid.Column="0" Text="Obecne" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                <Entry Grid.Column="1" x:Name="EntCurPwd" Placeholder="Obecne hasło" IsPassword="True" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+            </Grid>
+            <Grid Grid.Row="1" ColumnSpacing="20" ColumnDefinitions=".30*, *">
+                <Label Grid.Column="0" Text="Nowe" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                <Entry Grid.Column="1" x:Name="EntNewPwd" Placeholder="Nowe hasło" IsPassword="True" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+            </Grid>
+            <Grid Grid.Row="2" ColumnSpacing="20" ColumnDefinitions=".30*, *">
+                <Label Grid.Column="0" Text="Potwierdź" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                <Entry Grid.Column="1" x:Name="EntConfNewPwd" Placeholder="Potwierdź nowe hasło" IsPassword="True" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+            </Grid>
+        </Grid>
+        <VerticalStackLayout Margin="0, 30, 0, 0">
+            <Button x:Name="ChngPwdBtn"
+                    Text="Zmień hasło"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    TextColor="{StaticResource Dark}"
+                    WidthRequest="150"
+                    CornerRadius="10"
+                    BackgroundColor="{StaticResource Beige}"
+                    Clicked="ChngPwdBtn_Clicked" />
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KTOP.Pages.Homes.SearchHomePage"
+             BackgroundColor="{StaticResource Dark}"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+    <VerticalStackLayout>
+        <Grid Margin="15" ColumnSpacing="15" ColumnDefinitions="Auto,*">
+            <ImageButton Grid.Column="0"
+                         HorizontalOptions="Center"
+                         x:Name="BackImgBtn"
+                         Source="backarrow_b.png"
+                         WidthRequest="25"
+                         HeightRequest="25"
+                         BackgroundColor="{StaticResource Dark}"
+                         Clicked="BackImgBtn_Clicked"/>
+            <Frame Grid.Column="1" Padding="0" CornerRadius="10"
+                   BackgroundColor="{StaticResource Dark}"
+                   BorderColor="{StaticResource Beige}">
+                <SearchBar x:Name="HomeSB" Placeholder="Wyszukaj miejsce"
+                           TextColor="{StaticResource Light}"
+                           TextChanged="HomeSB_TextChanged"/>
+            </Frame>
+        </Grid>
+        <CollectionView x:Name="CVHomeSearch" Margin="30, 0, 30, 0"  SelectionMode="Single" SelectionChanged="CVHomeSearch_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Spacing="5">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal" />
+                                <VisualState Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="{StaticResource Beige}" />
+                                        <Setter TargetName="searchHomeLabel" Property="Label.TextColor" Value="{StaticResource Dark}" />
+                                        <Setter TargetName="searchHomeLabel" Property="Label.FontAttributes" Value="Bold" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Label x:Name="searchHomeLabel" Padding="10" FontSize="15" Text="{Binding HomeName}" TextColor="{StaticResource Light}" />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KTOP.Pages.Products.AddProductPage"
+             BackgroundColor="{StaticResource Dark}"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+    <VerticalStackLayout>
+        <Grid Margin="15" ColumnSpacing="15" ColumnDefinitions="Auto,*">
+            <ImageButton Grid.Column="0"
+                         HorizontalOptions="Center"
+                         x:Name="BackImgBtn"
+                         Source="backarrow_b.png"
+                         WidthRequest="25"
+                         HeightRequest="25"
+                         BackgroundColor="{StaticResource Dark}"
+                         Clicked="BackImgBtn_Clicked"/>
+            <Label Grid.Column="1" Text="Dodawanie produktu" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Beige}" />
+        </Grid>
+        <Grid Margin="30" RowSpacing="20" VerticalOptions="Start" RowDefinitions="Auto, Auto, Auto, Auto">
+            <Grid Grid.Row="0" ColumnSpacing="20" ColumnDefinitions=".30*, *">
+                <Label Grid.Column="0" Text="Nazwa" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                <Entry Grid.Column="1" x:Name="EntProductName" Placeholder="Nazwa produktu" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+            </Grid>
+            <Grid Grid.Row="1" ColumnSpacing="20" ColumnDefinitions=".30*, *">
+                <Label Grid.Column="0" Text="Kategoria" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                <Frame Grid.Column="1" Padding="5" BackgroundColor="{StaticResource Dark}" CornerRadius="10" BorderColor="{StaticResource Beige}">
+                    <Picker x:Name="categoryPicker" Title="Wybierz kategorię" TitleColor="Gray" ItemDisplayBinding="{Binding CategoryName}" />
+                </Frame>
+            </Grid>
+            <Grid Grid.Row="2" ColumnSpacing="20" ColumnDefinitions=".30*, *">
+                <Label Grid.Column="0" Text="Data ważności" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                <Frame Grid.Column="1" Padding="5" BackgroundColor="{StaticResource Dark}" CornerRadius="10" BorderColor="{StaticResource Beige}">
+                    <DatePicker x:Name="expiryDatePicker" VerticalOptions="Center" />
+                </Frame>
+            </Grid>
+            <Grid Grid.Row="3" ColumnSpacing="20" ColumnDefinitions=".30*, *">
+                <Label Grid.Column="0" Text="Miejsce" FontSize="15" TextColor="{StaticResource Light}" VerticalOptions="Center" />
+                <Frame Grid.Column="1" Padding="5" BackgroundColor="{StaticResource Dark}" CornerRadius="10" BorderColor="{StaticResource Beige}">
+                    <Picker x:Name="homePicker" Title="Wybierz miejsce" TitleColor="Gray" ItemDisplayBinding="{Binding HomeName}" VerticalOptions="Center" />
+                </Frame>
+            </Grid>
+        </Grid>
+        <VerticalStackLayout Margin="0, 30, 0, 0">
+            <Button x:Name="AddProductBtn"
+                Text="Dodaj"
+                FontSize="18"
+                FontAttributes="Bold"
+                TextColor="{StaticResource Dark}"
+                WidthRequest="150"
+                CornerRadius="10"
+                BackgroundColor="{StaticResource Beige}"
+                Clicked="AddProductBtn_Clicked" />
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

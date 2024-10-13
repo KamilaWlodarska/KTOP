@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cal="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
+             xmlns:globalization="clr-namespace:System.Globalization;assembly=System.Runtime"
+             x:Class="KTOP.Pages.CalendarPage"
+             BackgroundColor="{StaticResource Dark}"
+             Shell.BackgroundColor="{StaticResource Dark}"
+             Shell.ForegroundColor="{StaticResource Dark}"
+             Shell.TitleColor="{StaticResource Dark}"
+             Shell.NavBarIsVisible="False">
+    <Grid Margin="15, 0, 15, 15">
+        <cal:Calendar x:Name="cal"
+                      EventsScrollViewVisible="True"
+                      EventIndicatorColor="Maroon"
+                      EventIndicatorSelectedColor="Maroon"
+                      EventIndicatorSelectedTextColor="Maroon"
+                      EventIndicatorTextColor="Maroon"
+                      DaysTitleColor="{StaticResource Beige}"
+                      SelectedDateColor="{StaticResource Beige}"
+                      DeselectedDayTextColor="{StaticResource Light}"
+                      MonthLabelColor="{StaticResource Light}"
+                      YearLabelColor="{StaticResource Light}"
+                      TodayFillColor="{StaticResource Light}"
+                      TodayOutlineColor="{StaticResource Light}"
+                      SelectedTodayTextColor="{StaticResource Dark}"
+                      SelectedDayBackgroundColor="{StaticResource Beige}"
+                      ArrowsBackgroundColor="Transparent"
+                      ArrowsBorderColor="Transparent"
+                      ArrowsColor="{StaticResource Beige}"
+                      ArrowsFontSize="30"
+                      ArrowsSymbolPrev="◄"
+                      ArrowsSymbolNext="►"
+                      FooterArrowVisible="False"
+                      DayViewCornerRadius="10"
+                      ShowMonthPicker="True"
+                      ShowYearPicker="True"
+                      SwipeToChangeMonthEnabled="True"
+                      SwipeUpToHideEnabled="True"                  
+                      OtherMonthDayIsVisible="False"
+                      OtherMonthDayColor="{StaticResource Dark}"
+                      Culture="{x:Static globalization:CultureInfo.CurrentCulture}"
+                      Events="{Binding Events}">
+            <cal:Calendar.EventTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Spacing="30" VerticalOptions="Center">
+                        <Label x:Name="prodNameLabel" FontSize="15"
+                               Text="{Binding Name}"
+                               VerticalOptions="Center"
+                               TextColor="{StaticResource Light}" />
+                        <VerticalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="TapProd" Tapped="TapProd_Tapped" />
+                        </VerticalStackLayout.GestureRecognizers>
+                        </VerticalStackLayout>
+                </DataTemplate>
+            </cal:Calendar.EventTemplate>
+        </cal:Calendar>
+    </Grid>
+</ContentPage>
